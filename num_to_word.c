@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) {
+int main() {
   int num = 0;
   int digit = 0;
   int divisor = 1;
