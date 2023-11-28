@@ -1,22 +1,41 @@
 #include <stdio.h>
-#define ROWS 3
-#define COLS 3
 
-// Function to find the largest number in a 2D array
-int findLargest(int arr[ROWS][COLS]) {
-    int max = arr[0][0];
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLS; j++) {
-            if (arr[i][j] > max) {
-                max = arr[i][j];
+int findLargest(int rows, int cols, int array[rows][cols]) {
+    int largest = array[0][0];
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            if (array[i][j] > largest) {
+                largest = array[i][j];
             }
         }
     }
-    return max;
+
+    return largest;
 }
 
 int main() {
-    int arr[ROWS][COLS] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    printf("Largest number in the array is %d\n", findLargest(arr));
+    int rows, cols;
+
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
+
+    printf("Enter the number of columns: ");
+    scanf("%d", &cols);
+
+    int myArray[rows][cols];
+
+    printf("Enter the elements of the array:\n");
+
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            printf("Enter element at position (%d, %d): ", i + 1, j + 1);
+            scanf("%d", &myArray[i][j]);
+        }
+    }
+
+    int result = findLargest(rows, cols, myArray);
+    printf("The largest integer is: %d\n", result);
+
     return 0;
 }
